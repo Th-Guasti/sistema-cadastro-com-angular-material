@@ -24,7 +24,7 @@ import { Cliente } from '../cadastro/cliente';
   styleUrl: './consulta.component.scss'
 })
 
-export class ConsultaComponen implements OnInit { //sobre esse implements OnInit, não é necessário mais, nem adicionar no import
+export class ConsultaComponent implements OnInit { //sobre esse implements OnInit, não é necessário mais, nem adicionar no import
 
   listaClientes: Cliente[] = [];
 
