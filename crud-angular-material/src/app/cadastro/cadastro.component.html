@@ -1,1 +1,21 @@
-<p>cadastro works!</p>
+<div fxLayout="row" fxLayoutAlign="center">
+    <div fxLayout="column" fxFlex="1000px">
+         <form class="mt-100" #clientesFrm="ngForm">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Dados pessoais
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="mt-20">
+                    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <mat-form-field class="full-width">
+                            <mat-label>Nome: *</mat-label>
+                            <input type="text" placeholder="Ex: Alin An dos Ponto" matInput>
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+         </form> <!-- mt = margin-top -->
+    </div>
+</div>
