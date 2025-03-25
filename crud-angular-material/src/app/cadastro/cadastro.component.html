@@ -48,6 +48,7 @@
                                        placeholder="Digite seu CPF" 
                                        [(ngModel)]="cliente.cpf"
                                        name="cpf"
+                                       mask="000.000.000-00"
                                        matInput>
                             </mat-form-field>
                         </div>
@@ -63,6 +64,7 @@
                                        placeholder="Digite sua data de nascimento" 
                                        [(ngModel)]="cliente.dataNascimento"
                                        name="dataNascimento"
+                                       mask="00/00/0000"
                                        matInput>
                             </mat-form-field>
                         </div>
