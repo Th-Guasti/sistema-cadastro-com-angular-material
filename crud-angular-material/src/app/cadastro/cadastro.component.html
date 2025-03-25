@@ -13,12 +13,9 @@
                     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
                         <div fxLayout="column" fxFlex="900px">
                             <mat-form-field class="full-width">
-                                <mat-label>Nome: *</mat-label>
-                                <input type="text" 
-                                       [(ngModel)]="cliente.nome"
-                                       name="nome"
-                                       placeholder="Ex: Alin An dos Ponto"
-                                       matInput>
+                                <mat-label>Nome:</mat-label>
+                                <input type="text" [(ngModel)]="cliente.nome" name="nome"
+                                    placeholder="Ex: Alin An dos Ponto" matInput>
                             </mat-form-field>
                         </div>
                     </div>
@@ -27,13 +24,10 @@
                         <div fxLayout="column" fxFlex="900px">
                             <mat-form-field class="full-width">
                                 <mat-label>
-                                    Email: *
+                                    Email:
                                 </mat-label>
-                                <input type="email"
-                                       placeholder="Digite seu email" 
-                                       [(ngModel)]="cliente.email"
-                                       name="email"
-                                       matInput>
+                                <input type="email" placeholder="Digite seu email" [(ngModel)]="cliente.email"
+                                    name="email" matInput>
                             </mat-form-field>
                         </div>
                     </div>
@@ -42,14 +36,10 @@
                         <div fxLayout="column" fxFlex="400px">
                             <mat-form-field class="full-width">
                                 <mat-label>
-                                    CPF: *
+                                    CPF:
                                 </mat-label>
-                                <input type="string" 
-                                       placeholder="Digite seu CPF" 
-                                       [(ngModel)]="cliente.cpf"
-                                       name="cpf"
-                                       mask="000.000.000-00"
-                                       matInput>
+                                <input type="string" placeholder="Digite seu CPF" [(ngModel)]="cliente.cpf" name="cpf"
+                                    mask="000.000.000-00" matInput>
                             </mat-form-field>
                         </div>
                     </div>
@@ -58,14 +48,11 @@
                         <div fxLayout="column" fxFlex="400px">
                             <mat-form-field class="full-width">
                                 <mat-label>
-                                    Data de nascimento: *
+                                    Data de nascimento:
                                 </mat-label>
-                                <input type="email" 
-                                       placeholder="Digite sua data de nascimento" 
-                                       [(ngModel)]="cliente.dataNascimento"
-                                       name="dataNascimento"
-                                       mask="00/00/0000"
-                                       matInput>
+                                <input type="email" placeholder="Digite sua data de nascimento"
+                                    [(ngModel)]="cliente.dataNascimento" name="dataNascimento" mask="00/00/0000"
+                                    matInput>
                             </mat-form-field>
                         </div>
                     </div>
@@ -74,26 +61,26 @@
                 <mat-card-actions class="ml-7">
                     <!-- botao salvar -->
                     @if (!atualizando) {
-                        <button mat-flat-button color="primary" type="submit">
-                            <mat-icon fontIcon="save">
-                            </mat-icon>
-                            Salvar
-                        </button>    
-                    } @else {
-                        <!-- botao atualizar -->
-                        <button mat-flat-button color="primary" type="submit">
-                            <mat-icon fontIcon="refresh">
-                            </mat-icon>
-                            Atualizar
-                        </button>
-                    }
-                    
-                    <!-- botao limpar -->
-                    <button mat-flat-button class="ml-5">
-                        <mat-icon fontIcon="backspace">
+                    <button mat-flat-button color="primary" type="submit">
+                        <mat-icon fontIcon="save">
                         </mat-icon>
+                        Salvar
+                    </button>
+                    } @else {
+                    <!-- botao atualizar -->
+                    <button mat-flat-button color="primary" type="submit">
+                        <mat-icon fontIcon="refresh">
+                        </mat-icon>
+                        Atualizar
+                    </button>
+                    }
+
+                    <!-- botao limpar -->
+                    <button mat-flat-button class="ml-5" type="button" (click)="limpar()">
+                        <mat-icon fontIcon="backspace"></mat-icon>
                         Limpar
                     </button>
+
 
                 </mat-card-actions>
             </mat-card>
