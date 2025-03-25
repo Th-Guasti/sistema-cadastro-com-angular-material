@@ -2,17 +2,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrasilApiService } from '../brasilapi.service';
 import { Cliente } from './cliente';
 import { ClienteService } from '../cliente.service';
+import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { FormsModule } from '@angular/forms';
+import { Estado, Municipio } from '../brasilapi.models';
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
-import { Estado, Municipio } from '../brasilapi.models';
 
 
 @Component({
@@ -26,6 +28,8 @@ import { Estado, Municipio } from '../brasilapi.models';
     MatIconModule,
     MatButtonModule,
     NgxMaskDirective,
+    MatSelectModule,
+    CommonModule
   ],
   providers: [
     provideNgxMask()

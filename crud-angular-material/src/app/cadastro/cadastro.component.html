@@ -23,9 +23,7 @@
                     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
                         <div fxLayout="column" fxFlex="900px">
                             <mat-form-field class="full-width">
-                                <mat-label>
-                                    Email:
-                                </mat-label>
+                                <mat-label>Email:</mat-label>
                                 <input type="email" placeholder="Digite seu email" [(ngModel)]="cliente.email"
                                     name="email" matInput>
                             </mat-form-field>
@@ -35,9 +33,7 @@
                     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
                         <div fxLayout="column" fxFlex="400px">
                             <mat-form-field class="full-width">
-                                <mat-label>
-                                    CPF:
-                                </mat-label>
+                                <mat-label>CPF:</mat-label>
                                 <input type="string" placeholder="Digite seu CPF" [(ngModel)]="cliente.cpf" name="cpf"
                                     mask="000.000.000-00" matInput>
                             </mat-form-field>
@@ -47,12 +43,23 @@
                     <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
                         <div fxLayout="column" fxFlex="400px">
                             <mat-form-field class="full-width">
-                                <mat-label>
-                                    Data de nascimento:
-                                </mat-label>
+                                <mat-label>Data de nascimento:</mat-label>
                                 <input type="email" placeholder="Digite sua data de nascimento"
                                     [(ngModel)]="cliente.dataNascimento" name="dataNascimento" mask="00/00/0000"
                                     matInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                        <div fxLayout="column" fxFlex="400px">
+                            <mat-form-field class="full-width">
+                                <mat-label>UF:</mat-label>
+                                <mat-select>
+                                    <mat-option *ngFor="let uf of estados" [value]="uf.sigla">
+                                        {{ uf.sigla }}
+                                    </mat-option>
+                                </mat-select>
                             </mat-form-field>
                         </div>
                     </div>
