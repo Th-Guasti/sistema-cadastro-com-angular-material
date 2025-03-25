@@ -39,7 +39,6 @@ export class CadastroComponent implements OnInit {
   ngOnInit() {
     this.route.queryParamMap.subscribe((query: any) => {
       const params = query['params'];
-      console.log("Parâmetros: ", params);
       const id = params['id']
 
       if (id) {

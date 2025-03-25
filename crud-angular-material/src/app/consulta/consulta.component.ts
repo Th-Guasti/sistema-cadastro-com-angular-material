@@ -31,7 +31,7 @@ export class ConsultaComponent implements OnInit { //sobre esse implements OnIni
 
   nomeBusca: string = '';
   listaClientes: Cliente[] = [];
-  colunasTable : string[] = ["id", "nome", "cpf", "dataNascimento", "email", "acoes"]
+  colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email", "acoes"];
 
   constructor(
     private service: ClienteService,
@@ -40,15 +40,24 @@ export class ConsultaComponent implements OnInit { //sobre esse implements OnIni
 
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.listaClientes = this.service.pesquisarClientes('');
   }
 
-  pesquisar(){
+  pesquisar() {
     this.listaClientes = this.service.pesquisarClientes(this.nomeBusca)
   }
 
   preparaEditar(id: string) {
-    this.router.navigate(['/cadastro'], { queryParams: { "id": id }})
+    this.router.navigate(['/cadastro'], { queryParams: { "id": id } })
+  }
+
+  preparaDeletar(cliente: Cliente) {
+    cliente.deletando = true;
+  }
+
+  deletar(cliente: Cliente) {
+    this.service.deletar(cliente);
+    this.listaClientes = this.service.pesquisarClientes('');
   }
 }
