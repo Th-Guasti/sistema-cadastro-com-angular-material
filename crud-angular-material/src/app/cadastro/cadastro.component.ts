@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { MatSelectChange, MatSelectModule } from '@angular/material/select';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 
@@ -61,6 +61,10 @@ export class CadastroComponent implements OnInit {
         if (clienteEncontrado) {
           this.atualizando = true;
           this.cliente = clienteEncontrado;
+          if (this.cliente.uf) {
+            const event = { value: this.cliente.uf }
+            this.carregarMunicipios(event as MatSelectChange)
+          }
         }
       }
     })
@@ -75,8 +79,23 @@ export class CadastroComponent implements OnInit {
     })
   }
 
+  carregarMunicipios(event: MatSelectChange) {
+    const ufSelecionada = event.value;
+
+    this.brasilApiService.listarMunicipios(ufSelecionada).subscribe({
+      next: listaMunicipios => this.municipios = listaMunicipios,
+      error: erro => console.log('Ocorreu um erro: ', erro)
+    })
+  }
+
   salvar() {
-    if(!this.atualizando){
+    this.cliente.nome = this.removerAcentos((this.cliente.nome ?? "").toUpperCase());
+    this.cliente.email = this.cliente.email?.toUpperCase();
+    this.cliente.cpf = this.cliente.cpf?.toUpperCase();
+    this.cliente.uf = this.cliente.uf?.toUpperCase();
+    this.cliente.municipio = this.cliente.municipio?.toUpperCase();
+
+    if (!this.atualizando) {
       this.service.salvar(this.cliente);
       this.cliente = Cliente.newCliente();
       this.mostrarMensagem('Salvo com sucesso!')
@@ -89,9 +108,13 @@ export class CadastroComponent implements OnInit {
 
   limpar() {
     this.cliente = Cliente.newCliente();
-  }  
+  }
 
   mostrarMensagem(mensagem: string) {
     this.snack.open(mensagem, "Ok")
+  }
+
+  removerAcentos(texto: string): string {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 }

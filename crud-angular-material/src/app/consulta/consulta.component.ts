@@ -32,7 +32,7 @@ export class ConsultaComponent implements OnInit { //sobre esse implements OnIni
 
   nomeBusca: string = '';
   listaClientes: Cliente[] = [];
-  colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email", "acoes"];
+  colunasTable: string[] = ["id", "nome", "cpf", "dataNascimento", "email", "uf", "municipio", "acoes"];
   snack: MatSnackBar = inject(MatSnackBar)
 
   constructor(
